@@ -1,0 +1,32 @@
+server:
+  port: 8881
+  servlet:
+    context-path: /tira
+spring:
+  devtools:
+    restart:
+      enabled: true
+      trigger-file: devtools.tg
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    #你自己的数据库IP地址和数据库名，账号以及密码
+    url: jdbc:mysql://127.0.0.1:3306/tira?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false
+    username: root
+    password: root
+
+
+#数据库
+mybatis:
+  type-aliases-package: com.platform.tira.entity
+
+#pagehelper
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+
+logging:
+  level:
+    com.platform.tira.mapper: DEBUG
